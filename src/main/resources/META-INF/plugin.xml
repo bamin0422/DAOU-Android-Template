@@ -1,18 +1,33 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.bamin0422.intelijplatformplugintemplate</id>
-    <name>intelij-platform-plugin-template Template</name>
-    <vendor>bamin0422</vendor>
+  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+  <id>daou.android.plugin</id>
 
-    <depends>com.intellij.modules.platform</depends>
+  <!-- Public plugin name should be written in Title Case.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+  <name>DAOU-Android</name>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+  <vendor email="bamin0422@daou.co.kr" url="https://www.daou.co.kr">DAOU TECH</vendor>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.bamin0422.intelijplatformplugintemplate.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
+  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+  <description>다우기술 안드로이드 플러그인입니다. made by bamin0422</description>
 
-    <applicationListeners>
-        <listener class="com.github.bamin0422.intelijplatformplugintemplate.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+  <!-- Product and plugin compatibility requirements.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>org.jetbrains.android</depends>
+  <depends>com.intellij.modules.androidstudio</depends>
+
+  <!-- Extension points defined by the plugin.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+  <extensions defaultExtensionNs="com.intellij">
+
+  </extensions>
+
+  <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+    <wizardTemplateProvider implementation="com.daou.android.DaouProjectTemplatesProvider"/>
+  </extensions>
 </idea-plugin>
